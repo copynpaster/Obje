@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pages background="#ebebeb" duration="5000" transition="1500">
+	<page autonext="false">
+		<text>
+# Obje sample
+
+> Obje github address : https://github.com/copynpaster/Obje.git
+
+- - -
+
+### history
+
+> v0.9.0
+>
+> 1. 레티나 지원.
+> 2. jQuery 버전 업데이트.
+
+Copyright (c) 2016 Uchun Lee.
+		</text>
+	</page>
+	<page>
+		<image>assets/images/001.jpg</image>
+		<image2x>assets/images/001_2x.jpg</image2x>
+	</page>
+	<page>
+		<image>assets/images/002.jpg</image>
+		<image2x>assets/images/002_2x.jpg</image2x>
+	</page>
+	<page>
+		<image>assets/images/003.jpg</image>
+		<image2x>assets/images/003_2x.jpg</image2x>
+	</page>
+	<page>
+		<image>assets/images/004.jpg</image>
+		<image2x>assets/images/004_2x.jpg</image2x>
+	</page>
+	<page>
+		<image>assets/images/005.jpg</image>
+		<image2x>assets/images/005_2x.jpg</image2x>
+	</page>
+	<page>
+		<image>assets/images/006.jpg</image>
+		<image2x>assets/images/006_2x.jpg</image2x>
+	</page>
+	<page>
+		<image>assets/images/007.jpg</image>
+		<image2x>assets/images/007_2x.jpg</image2x>
+	</page>
+	<page>
+	</page>
+</pages>
