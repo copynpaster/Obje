@@ -14,10 +14,10 @@ div.navi_page {
 }
 
 pages .contents-container .text {
-    margin: 50px auto;
-    width: 500px;
+    margin: 20px auto;
     height: auto;
     text-align: left;
+    display: inline-block;
     color: #898;
 }
 
