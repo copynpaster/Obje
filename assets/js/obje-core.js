@@ -105,7 +105,7 @@ function chagneFullScreenText() {
 	
 }
 
-function runProgressWithSlideInfo(slideInfo) {
+function runProgressBySlideInfo(slideInfo) {
 	var autonext = slideInfo.getAttribute("autonext");
 	var duration = slideInfo.getAttribute("duration");
 
@@ -270,10 +270,10 @@ function showNextPage() {
 		$("html, body").animate({ scrollTop: 0 }, 100);
 		
 		var slideInfo = pageList[nextPage];
-		var autonext = slideInfo.getAttribute("autonext");
-		var duration = slideInfo.getAttribute("duration");
+		// var autonext = slideInfo.getAttribute("autonext");
+		// var duration = slideInfo.getAttribute("duration");
 		var newPage = addPageContents(pagesContainer, slideInfo);
-		startCrossFade(oldPage, newPage);
+		startCrossFade(oldPage, newPage, defaultFadeInDuration, defaultFadeOutDuration);
 		oldPage = newPage;
 		
 		currentPage++;
@@ -281,7 +281,9 @@ function showNextPage() {
 		
 		preloadImage(currentPage);
 
-		runProgressWithSlideInfo(slideInfo);
+		if (nextPage < pageList.length - 1) {
+			runProgressBySlideInfo(slideInfo);
+		}
 	} else {
 		//console.log("slide show is finished");
 	}
@@ -306,16 +308,18 @@ function movePage(pageIndex, rewind) {
 		var slideInfo = pageList[pageIndex];
 		var newPage = addPageContents(pagesContainer, slideInfo);
 		
-		newPage.style.display = '';
-		$(oldPage).remove();
-		
+		startCrossFade(oldPage, newPage, 100, 100);
 		oldPage = newPage;
 		moveSlider(pageIndex);
 
 		preloadImage(pageIndex);
 
 		if(rewind) {
-			runProgressWithSlideInfo(slideInfo);
+			if (pageIndex < pageList.length - 1) {
+				runProgressBySlideInfo(slideInfo);
+			} else {
+				$(progressBar).animate({ width: 0 }, 10, 'linear');
+			}
 		}
 	} else {
 		console.log("pageIndex outbound");
@@ -326,9 +330,9 @@ function moveSlider(index) {
 	$( "#slider" ).slider({ value: index });
 }
 
-function startCrossFade(oldPage, newPage) {
-	if (null != oldPage) $(oldPage).fadeTo(defaultFadeInDuration, 0.0, function() { $(oldPage).remove(); });
-	if (null != newPage) $(newPage).fadeTo(defaultFadeOutDuration, 1.0);
+function startCrossFade(oldPage, newPage, fadeinDuration, fadeoutDuration) {
+	if (null != oldPage) $(oldPage).fadeTo(fadeinDuration, 0.0, function() { $(oldPage).remove(); });
+	if (null != newPage) $(newPage).fadeTo(fadeoutDuration, 1.0);
 }
 
 function togglePauseAndStart() {
