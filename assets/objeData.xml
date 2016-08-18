@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pages background="#ebebeb" duration="5000" transition="1500">
 	<page autonext="false">
-		<text>
+		<text language="en">
 # Obje sample
 
 > Obje github address : https://github.com/copynpaster/Obje.git
@@ -15,16 +15,18 @@
 > 1. 레티나 지원.
 > 2. jQuery 버전 업데이트.
 
-Copyright (c) 2016 Uchun Lee.
+Copyright (c) 2016 Copynpaster.
 		</text>
 	</page>
 	<page>
 		<image>assets/images/001.jpg</image>
 		<image2x>assets/images/001_2x.jpg</image2x>
+		<text>##### Hotel stairs.</text>
 	</page>
 	<page>
 		<image>assets/images/002.jpg</image>
 		<image2x>assets/images/002_2x.jpg</image2x>
+		<text>##### Roma, Italy. (2013)</text>
 	</page>
 	<page>
 		<image>assets/images/003.jpg</image>
@@ -46,6 +48,15 @@ Copyright (c) 2016 Uchun Lee.
 		<image>assets/images/007.jpg</image>
 		<image2x>assets/images/007_2x.jpg</image2x>
 	</page>
+	<page duration="1500">
+		<!-- empty page -->
+	</page>
 	<page>
+		<text language="en">
+# Thank you.
+		</text>
+		<text language="ko">
+# 감사합니다.
+		</text>
 	</page>
 </pages>

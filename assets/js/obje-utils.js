@@ -3,6 +3,12 @@ var onloadcallback;
 
 $(document).ready(initialize);
 
+$.urlParam = function(name){
+	var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+	if (results == null) return null;
+	return results[1] || 0;
+}
+
 function initialize() {
 	if (window.XMLHttpRequest)
 		xmlHttpRequest = new XMLHttpRequest();
@@ -61,8 +67,10 @@ function computeVOffset(element) {
 }
 
 function addPageContents(container, slideInfo) {
+	var languageCode = $.urlParam('lang');
+	
 	var background = slideInfo.getAttribute("background");
-	var textInfo = slideInfo.getElementsByTagName("text")[0];
+	var textNodeList = slideInfo.getElementsByTagName("text");
 	var imageInfo = slideInfo.getElementsByTagName("image")[0];
 	var imageInfo2x = slideInfo.getElementsByTagName("image2x")[0];
 	var imagePath = null;
@@ -71,7 +79,16 @@ function addPageContents(container, slideInfo) {
 
 	if (null != imageInfo) imagePath = imageInfo.childNodes[0].nodeValue;
 	if (null != imageInfo2x) imagePath2x = imageInfo2x.childNodes[0].nodeValue;
-	if (null != textInfo) contents = textInfo.childNodes[0].nodeValue;
+	if (null != textNodeList && textNodeList.length > 0) {
+		for (var idx = 0; idx < textNodeList.length; idx++) {
+			if ( textNodeList[idx].getAttribute('language') == languageCode ) {
+				contents = textNodeList[idx].childNodes[0].nodeValue;
+			}
+		}
+		if (contents == null) {
+			contents = textNodeList[0].childNodes[0].nodeValue;
+		}
+	}
 	/*
 	var bgcolor = null;
 	
