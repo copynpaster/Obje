@@ -66,9 +66,7 @@ function computeVOffset(element) {
 	}
 }
 
-function addPageContents(container, slideInfo) {
-	var languageCode = $.urlParam('lang');
-	
+function addPageContents(container, slideInfo, languageCode) {
 	var background = slideInfo.getAttribute("background");
 	var textNodeList = slideInfo.getElementsByTagName("text");
 	var imageInfo = slideInfo.getElementsByTagName("image")[0];

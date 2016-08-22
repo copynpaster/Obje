@@ -7,6 +7,7 @@ var defaultFadeInDuration = 3000;
 var defaultFadeOutDuration = 3000;
 var defaultDuratuin = 9000;
 var isProgess = false;
+var languageCode;
 
 $(document).ready(initializeUi);
 
@@ -36,7 +37,13 @@ function checkShortcut(e) {
 }
 
 function initializeUi() {
-	console.log("initializeUi start");
+	// language setting
+	languageCode = $.urlParam('lang');
+
+	var userLang = navigator.language || navigator.userLanguage;
+	if (languageCode == null && userLang != null) {
+		languageCode = userLang.split('-')[0];
+	}
 
 	document.onselectstart = function() { return false; };
 	document.ondragstart = function() { return false; };
@@ -105,6 +112,15 @@ function chagneFullScreenText() {
 	
 }
 
+function setLanguage(languageCode) {
+	this.languageCode = languageCode;
+
+	var slideInfo = pageList[currentPage];
+	var autonext = slideInfo.getAttribute("autonext");
+
+	movePage(currentPage, autonext);
+}
+
 function runProgressBySlideInfo(slideInfo) {
 	var autonext = slideInfo.getAttribute("autonext");
 	var duration = slideInfo.getAttribute("duration");
@@ -138,6 +154,31 @@ function runProgress(time) {
 }
 
 function onLoadData(xmlData) {
+	var langSet = xmlData.getElementsByTagName("language");
+	// TODO 코드 정리
+	var supportedLang = false;
+	var languageSet = $("#language-list");
+	if (null != langSet && 0 < langSet.length) {
+		for (var idx = 0; idx < langSet.length; idx++) {
+			var lang = langSet[idx];
+			languageSet.append("<a href=\"javascript:;\" onClick=\"javascript:setLanguage('"
+					+ lang.getAttribute('value') + "')\" class=\"list-group-item\" data-dismiss=\"modal\">"
+					+ lang.getAttribute('name') + "</a>");
+
+			if (!supportedLang) {
+				supportedLang = (languageCode == lang.getAttribute('value'));
+			}
+		}
+	} else {
+		$("#language").hide();
+		supportedLang = true;
+	}
+
+	if (!supportedLang) {
+		languageCode = langSet[0].getAttribute('value');
+		$("#langModal").modal('show');
+	}
+
 	pageList = xmlData.getElementsByTagName("page");
 	currentPage = 0;
 	
@@ -272,7 +313,7 @@ function showNextPage() {
 		var slideInfo = pageList[nextPage];
 		// var autonext = slideInfo.getAttribute("autonext");
 		// var duration = slideInfo.getAttribute("duration");
-		var newPage = addPageContents(pagesContainer, slideInfo);
+		var newPage = addPageContents(pagesContainer, slideInfo, languageCode);
 		startCrossFade(oldPage, newPage, defaultFadeInDuration, defaultFadeOutDuration);
 		oldPage = newPage;
 		
@@ -306,7 +347,7 @@ function movePage(pageIndex, rewind) {
 		$(progressBar).animate({ width: $( "#progressbar" ).width() }, 100, 'linear');
 		
 		var slideInfo = pageList[pageIndex];
-		var newPage = addPageContents(pagesContainer, slideInfo);
+		var newPage = addPageContents(pagesContainer, slideInfo, languageCode);
 		
 		startCrossFade(oldPage, newPage, 100, 100);
 		oldPage = newPage;

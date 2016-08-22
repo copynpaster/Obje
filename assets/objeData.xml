@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pages background="#ebebeb" duration="5000" transition="1500">
-	<page autonext="false">
-		<text language="en">
+<obje>
+	<!-- language value is ISO 639-1 -->
+	<languages>
+		<language name="English" value="en"/>
+		<language name="한국어" value="ko"/>
+		<language name="日本語" value="ja"/>
+	</languages>
+	<pages background="#ebebeb" duration="5000" transition="1500">
+		<page autonext="false">
+			<text language="en">
 # Obje sample
 
 > Obje github address : https://github.com/copynpaster/Obje.git
@@ -10,53 +17,80 @@
 
 ### history
 
+> v0.9.1.
+>
+> 1. Support retina display using by 'picture' tag. (with support lagre screen)
+> 2. Support multi language of text.
+> 
+> v0.9.0
+>
+> 1. Support retina display.
+> 2. Update jQuery version.
+
+Copyright (c) 2016 Copynpaster.
+			</text>
+			<text language="ko">
+# Obje sample
+
+> Obje github address : https://github.com/copynpaster/Obje.git
+
+- - -
+
+### history
+
+> v0.9.1.
+>
+> 1. 레티나 지원을 picture tag 로 지원. (그에 따른 고해상도 모니터 지원)
+> 2. 텍스트 타잎 다국어 지원.
+> 
 > v0.9.0
 >
 > 1. 레티나 지원.
 > 2. jQuery 버전 업데이트.
 
 Copyright (c) 2016 Copynpaster.
-		</text>
-	</page>
-	<page>
-		<image>assets/images/001.jpg</image>
-		<image2x>assets/images/001_2x.jpg</image2x>
-		<text>##### Hotel stairs.</text>
-	</page>
-	<page>
-		<image>assets/images/002.jpg</image>
-		<image2x>assets/images/002_2x.jpg</image2x>
-		<text>##### Roma, Italy. (2013)</text>
-	</page>
-	<page>
-		<image>assets/images/003.jpg</image>
-		<image2x>assets/images/003_2x.jpg</image2x>
-	</page>
-	<page>
-		<image>assets/images/004.jpg</image>
-		<image2x>assets/images/004_2x.jpg</image2x>
-	</page>
-	<page>
-		<image>assets/images/005.jpg</image>
-		<image2x>assets/images/005_2x.jpg</image2x>
-	</page>
-	<page>
-		<image>assets/images/006.jpg</image>
-		<image2x>assets/images/006_2x.jpg</image2x>
-	</page>
-	<page>
-		<image>assets/images/007.jpg</image>
-		<image2x>assets/images/007_2x.jpg</image2x>
-	</page>
-	<page duration="1500">
-		<!-- empty page -->
-	</page>
-	<page>
-		<text language="en">
+			</text>
+		</page>
+		<page>
+			<image>assets/images/001.jpg</image>
+			<image2x>assets/images/001_2x.jpg</image2x>
+			<text>##### Hotel stairs.</text>
+		</page>
+		<page>
+			<image>assets/images/002.jpg</image>
+			<image2x>assets/images/002_2x.jpg</image2x>
+			<text>##### Roma, Italy. (2013)</text>
+		</page>
+		<page>
+			<image>assets/images/003.jpg</image>
+			<image2x>assets/images/003_2x.jpg</image2x>
+		</page>
+		<page>
+			<image>assets/images/004.jpg</image>
+			<image2x>assets/images/004_2x.jpg</image2x>
+		</page>
+		<page>
+			<image>assets/images/005.jpg</image>
+			<image2x>assets/images/005_2x.jpg</image2x>
+		</page>
+		<page>
+			<image>assets/images/006.jpg</image>
+			<image2x>assets/images/006_2x.jpg</image2x>
+		</page>
+		<page>
+			<image>assets/images/007.jpg</image>
+			<image2x>assets/images/007_2x.jpg</image2x>
+		</page>
+		<page duration="1500">
+			<!-- empty page -->
+		</page>
+		<page>
+			<text language="en">
 # Thank you.
-		</text>
-		<text language="ko">
+			</text>
+			<text language="ko">
 # 감사합니다.
-		</text>
-	</page>
-</pages>
+			</text>
+		</page>
+	</pages>
+</obje>
