@@ -344,7 +344,13 @@ function movePage(pageIndex, rewind) {
 		var progressBar = $( "#progressbar" ).find("div");
 
 		$(progressBar).stop(true, false);
-		$(progressBar).animate({ width: $( "#progressbar" ).width() }, 100, 'linear');
+
+		if (pageIndex < pageList.length - 1) {
+			$(progressBar).animate({ width: $( "#progressbar" ).width() }, 100, 'linear');
+		} else {
+			$(progressBar).animate({ width: 0 }, 10, 'linear');
+		}
+		
 		
 		var slideInfo = pageList[pageIndex];
 		var newPage = addPageContents(pagesContainer, slideInfo, languageCode);
@@ -358,8 +364,6 @@ function movePage(pageIndex, rewind) {
 		if(rewind) {
 			if (pageIndex < pageList.length - 1) {
 				runProgressBySlideInfo(slideInfo);
-			} else {
-				$(progressBar).animate({ width: 0 }, 10, 'linear');
 			}
 		}
 	} else {
