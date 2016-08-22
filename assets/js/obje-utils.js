@@ -94,8 +94,11 @@ function addPageContents(container, slideInfo, languageCode) {
 	if (null != bgcolor) lastBgColor = bgcolor;
 	*/
 	var page = document.createElement("div");
-	var image = document.createElement("img");
 	var text = document.createElement("div");
+	var textContainer = document.createElement("div");
+	var image = document.createElement("img");
+	var picture = document.createElement("picture");
+	var source = document.createElement("source");
 
 	page.id = "contents";
 	page.className = "contents-container";
@@ -104,22 +107,26 @@ function addPageContents(container, slideInfo, languageCode) {
 	if (null != background) $(page).css('background', background);
 	
 	if (null != imagePath && "null" != imagePath) {
-		image.src = imagePath;
 		if (null != imagePath2x) {
-			image.srcset = imagePath + ", " + imagePath2x + " 2x";
+			source.setAttribute("srcset", imagePath + ", " + imagePath2x + " 2x");
+		} else {
+			source.setAttribute("srcset", imagePath );
 		}
-		page.appendChild(image);
-
-		$(image).on('load', function() {
-			computeVOffset( $('#contents') );
-		});
+		
+		image.src = imagePath;
+		picture.appendChild(source);
+		picture.appendChild(image);
+		$(picture).css({'clear' : 'both'});
+		page.appendChild(picture);
 	}
 
 	if (null != contents) {
 		var converter = new Markdown.Converter();
 		text.className = "text";
 		text.innerHTML = converter.makeHtml(contents);
-		page.appendChild(text);
+		textContainer.className = "textContainer";
+		textContainer.appendChild(text);
+		page.appendChild(textContainer);
 	}
 
 	$(page).css({'display' : 'none'});

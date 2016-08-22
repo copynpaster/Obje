@@ -19,7 +19,7 @@
 
 > v0.9.1.
 >
-> 1. Support retina display using by 'picture' tag. (with support lagre screen)
+> 1. Support retina display using by 'picture' tag.
 > 2. Support multi language of text.
 > 
 > v0.9.0
@@ -40,7 +40,7 @@ Copyright (c) 2016 Copynpaster.
 
 > v0.9.1.
 >
-> 1. 레티나 지원을 picture tag 로 지원. (그에 따른 고해상도 모니터 지원)
+> 1. 레티나 지원을 picture tag 로 지원.
 > 2. 텍스트 타잎 다국어 지원.
 > 
 > v0.9.0
