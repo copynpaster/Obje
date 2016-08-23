@@ -4,7 +4,7 @@ How to install
 
 1. Clone git or download
 2. Copy & paste your web folder.
-3. Modify xml data & css style in assets
+3. Modify 'objeData.xml' data & 'style.css' style in assets
 4. Enjoy.
 
 
