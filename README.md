@@ -1,3 +1,13 @@
+Obje need not database system, php, jsp.
+
+How to install
+
+1. Clone git or download
+2. Copy & paste your web folder.
+3. Modify xml data & css style in assets
+4. Enjoy.
+
+
 ### history
 
 > v0.9.1.
