@@ -8,6 +8,7 @@ var defaultFadeOutDuration = 3000;
 var defaultDuratuin = 9000;
 var isProgess = false;
 var languageCode;
+var defaultBackground;
 
 $(document).ready(initializeUi);
 
@@ -186,12 +187,12 @@ function onLoadData(xmlData) {
 		alert("Data empty");
 	} else {
 		var pageInfo = xmlData.getElementsByTagName("pages");
-		var background = pageInfo[0].getAttribute("background");
+		defaultBackground = pageInfo[0].getAttribute("background");
 		var duration = pageInfo[0].getAttribute("duration");
 		var transition = pageInfo[0].getAttribute("transition");
 		
-		if (null != background) {
-			$('body').css('background', background);
+		if (null != defaultBackground) {
+			$('body').css('background', defaultBackground);
 		}
 
 		if (null != duration && duration > 0) {
@@ -311,11 +312,18 @@ function showNextPage() {
 		$("html, body").animate({ scrollTop: 0 }, 100);
 		
 		var slideInfo = pageList[nextPage];
+		var background = slideInfo.getAttribute("background");
 		// var autonext = slideInfo.getAttribute("autonext");
 		// var duration = slideInfo.getAttribute("duration");
 		var newPage = addPageContents(pagesContainer, slideInfo, languageCode);
 		startCrossFade(oldPage, newPage, defaultFadeInDuration, defaultFadeOutDuration);
 		oldPage = newPage;
+
+		if (background != null) {
+			$('body').animate({'backgroundColor': background}, defaultFadeInDuration );
+		} else if (defaultBackground != null) {
+			$('body').animate({'backgroundColor': defaultBackground}, defaultFadeInDuration );
+		}
 		
 		currentPage++;
 		moveSlider(currentPage);
@@ -353,10 +361,18 @@ function movePage(pageIndex, rewind) {
 		
 		
 		var slideInfo = pageList[pageIndex];
+		var background = slideInfo.getAttribute("background");
 		var newPage = addPageContents(pagesContainer, slideInfo, languageCode);
 		
 		startCrossFade(oldPage, newPage, 100, 100);
 		oldPage = newPage;
+
+		if (background != null) {
+			$('body').animate({'backgroundColor': background}, 100 );
+		} else if (defaultBackground != null) {	
+			$('body').animate({'backgroundColor': defaultBackground}, 100 );
+		}
+
 		moveSlider(pageIndex);
 
 		preloadImage(pageIndex);
