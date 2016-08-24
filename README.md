@@ -10,6 +10,10 @@ How to install
 
 ### history
 
+> v0.9.2.beta
+> 
+> 1. Can change background of each page. If not set. Using 'pages' setting.
+>
 > v0.9.1.
 >
 > 1. Support retina display using by 'picture' tag.
