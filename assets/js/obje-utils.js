@@ -67,7 +67,6 @@ function computeVOffset(element) {
 }
 
 function addPageContents(container, slideInfo, languageCode) {
-	var background = slideInfo.getAttribute("background");
 	var textNodeList = slideInfo.getElementsByTagName("text");
 	var imageInfo = slideInfo.getElementsByTagName("image")[0];
 	var imageInfo2x = slideInfo.getElementsByTagName("image2x")[0];
@@ -87,12 +86,7 @@ function addPageContents(container, slideInfo, languageCode) {
 			contents = textNodeList[0].childNodes[0].nodeValue;
 		}
 	}
-	/*
-	var bgcolor = null;
 	
-	if (null != bgcolorInfo) bgcolor = bgcolorInfo.childNodes[0].nodeValue;
-	if (null != bgcolor) lastBgColor = bgcolor;
-	*/
 	var page = document.createElement("div");
 	var text = document.createElement("div");
 	var textContainer = document.createElement("div");
@@ -103,8 +97,6 @@ function addPageContents(container, slideInfo, languageCode) {
 	page.id = "contents";
 	page.className = "contents-container";
 	page.addEventListener('click', togglePauseAndStart);
-	
-	if (null != background) $(page).css('background', background);
 	
 	if (null != imagePath && "null" != imagePath) {
 		if (null != imagePath2x) {
