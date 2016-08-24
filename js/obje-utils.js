@@ -100,12 +100,12 @@ function addPageContents(container, slideInfo, languageCode) {
 	
 	if (null != imagePath && "null" != imagePath) {
 		if (null != imagePath2x) {
-			source.setAttribute("srcset", imagePath + ", " + imagePath2x + " 2x");
+			source.setAttribute("srcset", rootPath + imagePath + ", " + rootPath + imagePath2x + " 2x");
 		} else {
-			source.setAttribute("srcset", imagePath );
+			source.setAttribute("srcset", rootPath + imagePath );
 		}
 		
-		image.src = imagePath;
+		image.src = rootPath + imagePath;
 		picture.appendChild(source);
 		picture.appendChild(image);
 		$(picture).css({'clear' : 'both'});

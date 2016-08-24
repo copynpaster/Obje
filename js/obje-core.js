@@ -9,6 +9,7 @@ var defaultDuratuin = 9000;
 var isProgess = false;
 var languageCode;
 var defaultBackground;
+var rootPath;
 
 $(document).ready(initializeUi);
 
@@ -82,7 +83,14 @@ function initializeUi() {
 
     $(this).keyup(checkShortcut);
 	
-	loadXmlData("assets/objeData.xml", onLoadData);
+	var portfolio = $.urlParam("p");
+
+	if (portfolio != null) {
+		rootPath = "assets/" + portfolio + "/"
+		loadXmlData(rootPath + "obje.xml", onLoadData);
+	} else {
+		alert("Portfolio name is empty");
+	}
 
 	$( window ).resize(function() {
 		computeVOffset( $( '#contents' ) );

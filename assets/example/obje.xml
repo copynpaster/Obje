@@ -60,34 +60,34 @@ Copyright (c) 2016 Copynpaster.
 			</text>
 		</page>
 		<page background="#ebebeb">
-			<image>assets/images/001.jpg</image>
-			<image2x>assets/images/001_2x.jpg</image2x>
+			<image>images/001.jpg</image>
+			<image2x>images/001_2x.jpg</image2x>
 			<text>##### Hotel stairs.</text>
 		</page>
 		<page background="#ebe9e6">
-			<image>assets/images/002.jpg</image>
-			<image2x>assets/images/002_2x.jpg</image2x>
+			<image>images/002.jpg</image>
+			<image2x>images/002_2x.jpg</image2x>
 			<text>##### Roma, Italy. (2013)</text>
 		</page>
 		<page background="#ebe7e1">
-			<image>assets/images/003.jpg</image>
-			<image2x>assets/images/003_2x.jpg</image2x>
+			<image>images/003.jpg</image>
+			<image2x>images/003_2x.jpg</image2x>
 		</page>
 		<page background="#ebe5dc">
-			<image>assets/images/004.jpg</image>
-			<image2x>assets/images/004_2x.jpg</image2x>
+			<image>images/004.jpg</image>
+			<image2x>images/004_2x.jpg</image2x>
 		</page>
 		<page background="#ece3d7">
-			<image>assets/images/005.jpg</image>
-			<image2x>assets/images/005_2x.jpg</image2x>
+			<image>images/005.jpg</image>
+			<image2x>images/005_2x.jpg</image2x>
 		</page>
 		<page background="#ece1d2">
-			<image>assets/images/006.jpg</image>
-			<image2x>assets/images/006_2x.jpg</image2x>
+			<image>images/006.jpg</image>
+			<image2x>images/006_2x.jpg</image2x>
 		</page>
 		<page background="#ecdfcd">
-			<image>assets/images/007.jpg</image>
-			<image2x>assets/images/007_2x.jpg</image2x>
+			<image>images/007.jpg</image>
+			<image2x>images/007_2x.jpg</image2x>
 		</page>
 		<page duration="1500">
 			<!-- empty page -->
