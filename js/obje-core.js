@@ -163,7 +163,10 @@ function runProgress(time) {
 }
 
 function onLoadData(xmlData) {
-	var langSet = xmlData.getElementsByTagName("language");
+	setStyle(xmlData);
+
+	var languages = xmlData.getElementsByTagName("languages");
+	var langSet = languages[0].getElementsByTagName("language");
 	// TODO 코드 정리
 	var supportedLang = false;
 	var languageSet = $("#language-list");
@@ -240,6 +243,56 @@ function onLoadData(xmlData) {
 			}
 		});
 	}
+}
+
+function setStyle(xmlData) {
+	// progressbar setting.
+	var settings = xmlData.getElementsByTagName("settings")[0];
+
+	if(settings == null) {
+		console.log("settings is empty");
+		return;
+	}
+	var style = document.createElement("style");
+
+	// progress color
+	var progressbar = settings.getElementsByTagName("progressbar");
+	if (progressbar && progressbar.length > 0) {
+		var color = progressbar[0].getAttribute("color");
+		if (color) {
+			style.appendChild(document.createTextNode("#progressbar div {background: " +  color + ";}"));
+		}
+	}
+
+	// text button color
+	var button = settings.getElementsByTagName("button");
+	if (button && button.length > 0) {
+		var color = button[0].getAttribute("color");
+		if (color) {
+			style.appendChild(document.createTextNode("div.interface_btn {color: " +  color + ";}"));
+		}
+
+		$(button).children().each(function(index, element) {
+			var childColor = element.getAttribute("color");
+			style.appendChild( document.createTextNode("div." + element.tagName + " {color: " +  childColor + ";}") );
+		});
+	}
+
+	// text setting.
+	var text = settings.getElementsByTagName("text");
+	if (text && text.length > 0) {
+		var color = text[0].getAttribute("color");
+		if (color) {
+			style.appendChild(document.createTextNode("pages .text {color: " +  color + ";}"));
+		}
+
+		$(text).children().each(function(index, element) {
+			var childColor = element.getAttribute("color");
+			style.appendChild( document.createTextNode("pages .text " + element.tagName + " {color: " +  childColor + ";}") );
+		});
+	}
+
+	document.head.appendChild(style);
 }
 
 function setSliderBubble(value) {

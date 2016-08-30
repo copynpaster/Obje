@@ -15,20 +15,30 @@ div.top_container {
     overflow: auto;
 }
 
+div.interface_btn {
+    color:#999990;
+    z-index:100;
+    cursor: pointer;
+}
+
 div.language {
     position: fixed;
     top:10px;
     left:10px;
-    z-index:10;
     cursor: pointer;
+    font-size: 1.2em;
+    font-family: arial, 바탕체, "Times New Roman", Serif;
+    margin: 10px;
 }
 
 div.fullscreen {
     position: fixed;
     top:10px;
     right:10px;
-    z-index:10;
     cursor: pointer;
+    font-size: 1.2em;
+    font-family: arial, 바탕체, "Times New Roman", Serif;
+    margin: 10px;
 }
 
 div.navi_slider {
@@ -49,9 +59,6 @@ div.navi_page {
     text-align: center;
     top: 50%;
     font-size: 3em;
-    color: #999990;
-    cursor: pointer;
-    z-index:100;
 }
 
 div.prev_page {
@@ -172,4 +179,12 @@ pages .contents-container img {
     height: auto;
     max-width: 95vw;
     max-height: 95vh;
+}
+
+pages .contents-container .text {
+    margin: 20px auto;
+    height: auto;
+    text-align: left;
+    display: inline-block;
+    font-family: arial, 바탕체, "Times New Roman", Serif;
 }

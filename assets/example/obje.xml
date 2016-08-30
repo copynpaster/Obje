@@ -1,11 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <obje>
-	<!-- language value is ISO 639-1 -->
-	<languages>
-		<language name="English" value="en"/>
-		<language name="한국어" value="ko"/>
-		<language name="日本語" value="ja"/>
-	</languages>
+	<settings>
+		<progressbar color="#889988"/>
+		<button color="#889988">
+			<prev_page color="#aba"/>
+			<next_page color="#9a9"/>
+			<language color="#9a9"/>
+			<fullscreen color="9a9"/>
+		</button>
+		<text color="#889988">
+			<a color="#aaa"/>
+			<h1 color="#667766"/>
+			<h3 color="#667766"/>
+		</text>
+		<!-- language value is ISO 639-1 -->
+		<languages>
+			<language name="English" value="en"/>
+			<language name="한국어" value="ko"/>
+			<language name="日本語" value="ja"/>
+		</languages>
+	</settings>
 	<pages background="#ebebeb" duration="5000" transition="1500">
 		<page autonext="false">
 			<text language="en">
@@ -44,7 +58,9 @@ Copyright (c) 2016 Copynpaster.
 
 > v0.9.2.beta
 > 
-> 1. 각각의 페이지 별로 배경을 설정 할 수 있습니다. 설정하지 않으면. 'pages'의 설정값을 따라갑니다.
+> 1. assets에서 여러 프로젝트를 포함 할 수 있도록 함.
+> 2. 각각의 페이지 별로 배경을 설정 할 수 있습니다. 설정하지 않으면. 'pages'의 설정값을 따라갑니다.
+> 3. Style.css 삭제. 폰트설정 등을 obje.xml 안에서 설정 가능하도록 수정함.
 >
 > v0.9.1.
 >
