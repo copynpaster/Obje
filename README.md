@@ -12,7 +12,9 @@ How to install
 
 > v0.9.2.beta
 > 
-> 1. Can change background of each page. If not set. Using 'pages' setting.
+> 1. Can include many portfolio in assets directory.
+> 2. Can change background of each page. If not set. Using 'pages' setting.
+> 3. Remove style.css file. Now you can font and color setting in obje.xml file.
 >
 > v0.9.1.
 >
