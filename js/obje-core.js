@@ -86,7 +86,7 @@ function initializeUi() {
 	var portfolio = $.urlParam("p");
 
 	if (portfolio != null) {
-		rootPath = "./assets/" + portfolio + "/"
+		rootPath = "assets/" + portfolio + "/"
 		loadXmlData(rootPath + "obje.xml", onLoadData);
 	} else {
 		alert("Portfolio name is empty");
