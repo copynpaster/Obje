@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <obje>
 	<settings>
+		<titles>
+			<title text="Obje Title" language="en"/>	
+			<title text="오브제 타이틀" language="ko"/>
+		</titles>
 		<progressbar color="#889988"/>
 		<button color="#889988">
 			<prev_page color="#aba"/>

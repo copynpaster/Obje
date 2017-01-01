@@ -191,6 +191,25 @@ function onLoadData(xmlData) {
 		$("#langModal").modal('show');
 	}
 
+	var titles = xmlData.getElementsByTagName("titles");
+	var titleSet = titles[0].getElementsByTagName("title");
+	if (null != titleSet && 0 < titleSet.length) {
+		var titleText;
+		for (var idx = 0; idx < titleSet.length; idx++) {
+			var titleInfo = titleSet[idx];
+			if (titleInfo.getAttribute("language") == languageCode) {
+				titleText = titleInfo.getAttribute("text");
+			}
+		}
+
+		if (titleText == null) {
+			titleText = titleSet[0].getAttribute("text");
+		}
+		if (titleText != null) {
+			document.title = titleText;
+		}
+	}
+
 	pageList = xmlData.getElementsByTagName("page");
 	currentPage = 0;
 	
