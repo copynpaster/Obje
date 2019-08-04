@@ -187,4 +187,7 @@ pages .contents-container .text {
     text-align: left;
     display: inline-block;
     font-family: arial, 바탕체, "Times New Roman", Serif;
+    max-width: 95vw;
+    max-height: 95vh;
+    overflow: scroll;
 }
