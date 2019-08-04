@@ -86,7 +86,7 @@ function addPageContents(container, slideInfo, languageCode) {
 			contents = textNodeList[0].childNodes[0].nodeValue;
 		}
 	}
-	
+
 	var page = document.createElement("div");
 	var text = document.createElement("div");
 	var textContainer = document.createElement("div");
@@ -97,14 +97,14 @@ function addPageContents(container, slideInfo, languageCode) {
 	page.id = "contents";
 	page.className = "contents-container";
 	page.addEventListener('click', togglePauseAndStart);
-	
+
 	if (null != imagePath && "null" != imagePath) {
 		if (null != imagePath2x) {
 			source.setAttribute("srcset", rootPath + imagePath + ", " + rootPath + imagePath2x + " 2x");
 		} else {
 			source.setAttribute("srcset", rootPath + imagePath );
 		}
-		
+
 		image.src = rootPath + imagePath;
 		picture.appendChild(source);
 		picture.appendChild(image);
@@ -122,10 +122,10 @@ function addPageContents(container, slideInfo, languageCode) {
 	}
 
 	$(page).css({'display' : 'none'});
-	
+
 	container.appendChild(page);
 
 	//computeVOffset(page);
-	
+
 	return page;
 }

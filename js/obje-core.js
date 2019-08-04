@@ -18,7 +18,7 @@ var lastX, lastY, lastStamp;
 
 function resetTimeout(e) {
 	setVisibilityController(true);
-	
+
 	clearTimeout(inputTimer);
 	inputTimer = setTimeout(hideController, 1500);
 }
@@ -49,7 +49,7 @@ function initializeUi() {
 
 	document.onselectstart = function() { return false; };
 	document.ondragstart = function() { return false; };
-	
+
 	pagesContainer = document.getElementsByTagName('pages')[0];
 
 	lastStamp = lastX = lastY = -1;
@@ -65,10 +65,10 @@ function initializeUi() {
 
 		var currX = e.clientX;
 		var currY = e.clientY;
-		
+
 		var dx = Math.abs(currX - lastX);
 		var dy = Math.abs(currY - lastY);
-			
+
 		if (dx > 3 || dy > 3) {
 			resetTimeout(e);
 		}
@@ -82,7 +82,7 @@ function initializeUi() {
     $(document).bind('touchend', resetTimeout);
 
     $(this).keyup(checkShortcut);
-	
+
 	var portfolio = $.urlParam("p");
 
 	if (portfolio != null) {
@@ -106,7 +106,7 @@ function initializeUi() {
 	} else {
 		$( '#fullscreen' ).toggle(false);
 	}
-	
+
 	inputTimer = setTimeout(hideController, 1500);
 }
 
@@ -118,7 +118,7 @@ function chagneFullScreenText() {
 		$('#fullscreen').show();
 		$('#defaultscreen').hide();
 	}
-	
+
 }
 
 function setLanguage(languageCode) {
@@ -136,7 +136,7 @@ function runProgressBySlideInfo(slideInfo) {
 
 	if (autonext != 'false') {
 		if (null == duration) {
-			duration = defaultDuratuin;	
+			duration = defaultDuratuin;
 		} else {
 			duration *= 1;
 		}
@@ -149,7 +149,7 @@ function runProgressBySlideInfo(slideInfo) {
 function runProgress(time) {
 	console.log("runProgress : " + time);
 
-	$( '#slider').fadeOut('fast'); 
+	$( '#slider').fadeOut('fast');
 	$( '#progressbar').fadeIn('fast');
 
     var progressBar = $( "#progressbar" ).find("div");
@@ -212,7 +212,7 @@ function onLoadData(xmlData) {
 
 	pageList = xmlData.getElementsByTagName("page");
 	currentPage = 0;
-	
+
 	if (null == pageList || 0 == pageList.length) {
 		alert("Data empty");
 	} else {
@@ -220,7 +220,7 @@ function onLoadData(xmlData) {
 		defaultBackground = pageInfo[0].getAttribute("background");
 		var duration = pageInfo[0].getAttribute("duration");
 		var transition = pageInfo[0].getAttribute("transition");
-		
+
 		if (null != defaultBackground) {
 			$('body').css('background', defaultBackground);
 		}
@@ -325,7 +325,7 @@ function setVisibilityController(isVisible) {
 		if ($(navi_prev).css("opacity") < 1.0) {
 			$(navi_prev).fadeTo(100, 1.0);
 		}
-		
+
 		if ($(navi_next).css("opacity") < 1.0) {
 			$( navi_next ).fadeTo(100, 1.0);
 		}
@@ -337,7 +337,7 @@ function setVisibilityController(isVisible) {
 		if ($(navi_prev).css("opacity") > 0.0) {
 			$( navi_prev ).fadeTo(1000, 0.0);
 		}
-		
+
 		if ($(navi_next).css("opacity") > 0.0) {
 			$( navi_next ).fadeTo(1000, 0.0);
 		}
@@ -351,15 +351,15 @@ function setVisibilityController(isVisible) {
 function preloadImage(index) {
 	var image = new Image();
 	image.onLoad = imagesLoad();
-	
+
 	var preloadLimit = index + 3;
 	if (preloadLimit > pageList.length) preloadLimit = pageList.length;
-	
+
 	for(var idx = index; idx < preloadLimit; idx++) {
 		var page = pageList[idx];
 		var imageInfo = page.getElementsByTagName("image")[0];
 		var imageInfo2x = page.getElementsByTagName("image2x")[0];
-		
+
 		if (null != imageInfo2x && window.devicePixelRatio == 2.0) {
 			var imagePath = imageInfo2x.childNodes[0].nodeValue;
 			if ("null" != imagePath) {
@@ -390,7 +390,7 @@ function showNextPage() {
 	//console.log("nextPage : " + nextPage + " / " + pageList.length);
 	if (nextPage < pageList.length) {
 		$("html, body").animate({ scrollTop: 0 }, 100);
-		
+
 		var slideInfo = pageList[nextPage];
 		var background = slideInfo.getAttribute("background");
 		// var autonext = slideInfo.getAttribute("autonext");
@@ -404,10 +404,10 @@ function showNextPage() {
 		} else if (defaultBackground != null) {
 			$('body').animate({'backgroundColor': defaultBackground}, defaultFadeInDuration );
 		}
-		
+
 		currentPage++;
 		moveSlider(currentPage);
-		
+
 		preloadImage(currentPage);
 
 		if (nextPage < pageList.length - 1) {
@@ -438,18 +438,17 @@ function movePage(pageIndex, rewind) {
 		} else {
 			$(progressBar).animate({ width: 0 }, 10, 'linear');
 		}
-		
-		
+
 		var slideInfo = pageList[pageIndex];
 		var background = slideInfo.getAttribute("background");
 		var newPage = addPageContents(pagesContainer, slideInfo, languageCode);
-		
+
 		startCrossFade(oldPage, newPage, 100, 100);
 		oldPage = newPage;
 
 		if (background != null) {
 			$('body').animate({'backgroundColor': background}, 100 );
-		} else if (defaultBackground != null) {	
+		} else if (defaultBackground != null) {
 			$('body').animate({'backgroundColor': defaultBackground}, 100 );
 		}
 
