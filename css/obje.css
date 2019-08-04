@@ -184,8 +184,6 @@ pages .contents-container img {
 pages .contents-container .textContainer {
     width: 100%;
     height: 100%;
-    padding-left: 40px;
-    padding-right: 40px;
     padding-top: 60px;
     padding-bottom: 60px;
     max-width: 100vh;
@@ -194,6 +192,7 @@ pages .contents-container .textContainer {
 }
 
 pages .contents-container .text {
+    max-width: 90vw;
     margin: 0px auto;
     text-align: left;
     display: inline-block;
