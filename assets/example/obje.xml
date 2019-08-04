@@ -91,7 +91,7 @@ Copyright (c) 2016 Copynpaster.
 			<image2x>images/002_2x.jpg</image2x>
 			<text>##### Roma, Italy. (2013)</text>
 		</page>
-		<page background="#ebe7e1">
+		<page background="#ebe7e1" transition="500">
 			<image>images/003.jpg</image>
 			<image2x>images/003_2x.jpg</image2x>
 		</page>
