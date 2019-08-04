@@ -177,8 +177,8 @@ pages .contents-container {
 pages .contents-container img {
     width: auto;
     height: auto;
-    max-width: 95vw;
-    max-height: 95vh;
+    max-width: 95vmin;
+    max-height: 95vmin;
 }
 
 pages .contents-container .textContainer {
