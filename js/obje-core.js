@@ -395,14 +395,22 @@ function showNextPage() {
 		var background = slideInfo.getAttribute("background");
 		// var autonext = slideInfo.getAttribute("autonext");
 		// var duration = slideInfo.getAttribute("duration");
+		var transition = slideInfo.getAttribute("transition");
+
+		if (transition == null || transition <= 0) {
+			transition = defaultFadeInDuration
+		} else {
+			transition *= 1
+		}
+
 		var newPage = addPageContents(pagesContainer, slideInfo, languageCode);
-		startCrossFade(oldPage, newPage, defaultFadeInDuration, defaultFadeOutDuration);
+		startCrossFade(oldPage, newPage, transition, transition);
 		oldPage = newPage;
 
 		if (background != null) {
-			$('body').animate({'backgroundColor': background}, defaultFadeInDuration );
+			$('body').animate({'backgroundColor': background}, transition );
 		} else if (defaultBackground != null) {
-			$('body').animate({'backgroundColor': defaultBackground}, defaultFadeInDuration );
+			$('body').animate({'backgroundColor': defaultBackground}, transition );
 		}
 
 		currentPage++;
